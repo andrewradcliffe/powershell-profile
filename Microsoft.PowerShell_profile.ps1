@@ -91,7 +91,8 @@ function vd()
 
     if ([string]::IsNullOrEmpty($dir))
     {
-        Write-Host "No directory specified, using current directory"
+        Write-Host "No directory specified, aborting"
+        return
     }
 
     if (Test-Path $dir)
