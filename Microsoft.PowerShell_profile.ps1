@@ -75,6 +75,7 @@ function vd()
 {
     param (
         [string]$dir,
+        [string]$fileName,
         [switch]$o
     )
 
@@ -109,13 +110,25 @@ function vd()
         }
     }
 
-    if ($o)
+    if ($o -and $fileName)
+    {
+        $path = Get-Location
+        $windowsPath = $fileName -replace '/', '\'
+        $fullPath = Join-Path $path $windowsPath
+        if (-not (Test-Path $fullPath))
+        {
+            Write-Warning "File not found, aborting"
+            return
+        }
+        lvim $fileName
+    }
+    elseif ($o -and -not $fileName)
     {
         lvim
     }
     else
     {
-        vo($null)
+        vo($fileName)
     }
 }
 
