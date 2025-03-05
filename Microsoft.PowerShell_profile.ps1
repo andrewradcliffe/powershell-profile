@@ -2,8 +2,6 @@ Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 $env:PYTHONIOENCODING="utf-8"
 
-Invoke-Expression "$(thefuck --alias)"
-
 Set-Alias -Name env -Value ./.venv/scripts/activate.ps1
 
 function api()
@@ -130,6 +128,15 @@ function vd()
     {
         vo($fileName)
     }
+}
+
+function mkdir()
+{
+    param (
+        [string]$path
+    )
+
+    New-Item -ItemType Directory -Path $path
 }
 
 oh-my-posh init pwsh --config "C:\Users\Andrew Radcliffe\OneDrive - Voyager Worldwide (UK) Limited\Documents\clean-detailed.omp.json" | Invoke-Expression
