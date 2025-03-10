@@ -44,7 +44,7 @@ function dnvgit()
 function vimnotes()
 {
     z "c:/work notes"
-    lvim
+    lvim To-do.md
 }
 
 function vo()
