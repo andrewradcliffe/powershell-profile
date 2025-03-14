@@ -41,7 +41,7 @@ function dnvgit()
     lazygit
 }
 
-function vimnotes()
+function notes()
 {
     z "c:/work notes"
     lvim To-do.md
